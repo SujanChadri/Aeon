@@ -347,7 +347,7 @@ class MirrorLeechListener:
         LOGGER.info(f'Task Done: {name}')
         buttons = ButtonMaker()
         iButton = ButtonMaker()
-        iButton.ibutton('View in inbox', f"aeon {user_id} private", 'header')
+        iButton.ibutton('Get Your Files', f"aeon {user_id} private", 'header')
         iButton = extra_btns(iButton)
         if self.isLeech:
             if folders > 1:
@@ -358,12 +358,12 @@ class MirrorLeechListener:
             msg += f'<b>• User ID: </b><code>{self.message.from_user.id}</code></blockquote>\n\n'
             if not files:
                 if self.isPrivate:
-                    msg += '<b>Files have not been sent for an unspecified reason</b>'
+                    msg += '<b>Files Have Not Been Sent For An Unspecified Reason</b>'
                 await sendMessage(self.message, msg)
             else:
                 attachmsg = True
                 fmsg, totalmsg = '\n\n', ''
-                lmsg = '<b>Files have been sent. Access them via the provided links.</b>'
+                lmsg = '<b>Files Have Been Sent. Access Them Via Links.</b>'
                 for index, (link, name) in enumerate(files.items(), start=1):
                     fmsg += f"{index}. <a href='{link}'>{name}</a>\n"
                     totalmsg = (msg + lmsg + fmsg) if attachmsg else fmsg
@@ -382,7 +382,7 @@ class MirrorLeechListener:
                 await sendMessage(self.botpmmsg, msg + lmsg + fmsg)
                 await deleteMessage(self.botpmmsg)
                 if self.isSuperGroup:
-                    await sendMessage(self.message, f'{msg}<b>Files has been sent to your inbox</b>', iButton.build_menu(1))
+                    await sendMessage(self.message, f'{msg}<b>Files Has Been Sent To Bot PM</b>', iButton.build_menu(1))
                 else:
                     await deleteMessage(self.botpmmsg)
             if self.seed:
@@ -423,7 +423,7 @@ class MirrorLeechListener:
             await sendMessage(self.botpmmsg, msg, button, 'Random')
             await deleteMessage(self.botpmmsg)
             if self.isSuperGroup:
-                await sendMessage(self.message, f'{msg} <b>Links has been sent to your inbox</b>', iButton.build_menu(1))
+                await sendMessage(self.message, f'{msg} <b>Links Has Been Sent To Bot PM</b>', iButton.build_menu(1))
             else:
                 await deleteMessage(self.botpmmsg)
             if self.seed:
