@@ -292,7 +292,7 @@ class MirrorLeechListener:
             up = len(non_queued_up)
             if (all_limit and dl + up >= all_limit and (not up_limit or up >= up_limit)) or (up_limit and up >= up_limit):
                 added_to_queue = True
-                LOGGER.info(f"Added to Queue/Upload: {name}")
+                LOGGER.info(f"Added To Queue/Upload: {name}")
                 event = Event()
                 queued_up[self.uid] = event
         if added_to_queue:
@@ -341,7 +341,7 @@ class MirrorLeechListener:
         user_id = self.message.from_user.id
         name, _ = await process_file(name, user_id, isMirror=not self.isLeech)
         user_dict = user_data.get(user_id, {})
-        msg = f'{escape(name)}\n\n'
+        msg = f'<b>• Name:</b> <code>{escape(name)}</code>\n\n'
         msg += f'<b>• Size: </b>{get_readable_file_size(size)}\n'
         msg += f'<b>• Elapsed: </b>{get_readable_time(time() - self.message.date.timestamp())}\n'
         LOGGER.info(f'Task Done: {name}')
@@ -351,10 +351,10 @@ class MirrorLeechListener:
         iButton = extra_btns(iButton)
         if self.isLeech:
             if folders > 1:
-                msg += f'<b>• Total files: </b>{folders}\n'
+                msg += f'<b>• Total Files: </b>{folders}\n'
             if mime_type != 0:
-                msg += f'<b>• Corrupted files: </b>{mime_type}\n'
-            msg += f'<b>• Uploaded by: </b>{self.tag}\n'
+                msg += f'<b>• Corrupted Files: </b>{mime_type}\n'
+            msg += f'<b>• Uploaded By: </b>{self.tag}\n'
             msg += f'<b>• User ID: </b><code>{self.message.from_user.id}</code>\n\n'
             if not files:
                 if self.isPrivate:
@@ -395,7 +395,7 @@ class MirrorLeechListener:
                 return
         else:
             if mime_type == "Folder":
-                msg += f'<b>• Total files: </b>{files}\n'
+                msg += f'<b>• Total Files: </b>{files}\n'
             if link:
                 buttons.ubutton('Cloud link', link)
                 INDEX_URL = self.index_link if self.drive_id else config_dict['INDEX_URL']
@@ -413,7 +413,7 @@ class MirrorLeechListener:
                 button = None
                 buttons = extra_btns(buttons)
                 button = buttons.build_menu(2)
-            msg += f'<b>• Uploaded by: </b>{self.tag}\n'
+            msg += f'<b>• Uploaded By: </b>{self.tag}\n'
             msg += f'<b>• User ID: </b><code>{self.message.from_user.id}</code>\n\n'
 
             if config_dict['MIRROR_LOG_ID']:
