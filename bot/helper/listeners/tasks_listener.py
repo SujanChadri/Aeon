@@ -341,7 +341,7 @@ class MirrorLeechListener:
         user_id = self.message.from_user.id
         name, _ = await process_file(name, user_id, isMirror=not self.isLeech)
         user_dict = user_data.get(user_id, {})
-        msg = f'<b>• Name:</b> <code>{escape(name)}</code>\n\n'
+        msg = f'<b>• Name: </b><code>{escape(name)}</code>\n\n'
         msg += f'<b>• Size: </b>{get_readable_file_size(size)}\n'
         msg += f'<b>• Elapsed: </b>{get_readable_time(time() - self.message.date.timestamp())}\n'
         LOGGER.info(f'Task Done: {name}')
