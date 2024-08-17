@@ -37,19 +37,19 @@ from .helper.mirror_leech_utils.gdrive_utils import count, delete, list, clone
 if config_dict['GDRIVE_ID']:
     help_string = f'''<b>NOTE: Try each command without any arguments to see more details.</b>
 
-<blockquote expandable>/{BotCommands.MirrorCommand[0]} - Start mirroring to Google Drive.
+/{BotCommands.MirrorCommand[0]} - Start mirroring to Google Drive.
 /{BotCommands.LeechCommand[0]} - Start leeching to Telegram.
 /{BotCommands.YtdlCommand[0]} - Mirror links supported by yt-dlp.
 /{BotCommands.YtdlLeechCommand[0]} - Leech links supported by yt-dlp.
 /{BotCommands.CloneCommand[0]} - Copy files/folders to Google Drive.
 /{BotCommands.CountCommand} - Count files/folders in Google Drive.
 /{BotCommands.ListCommand} - Search in Google Drive(s).
-/{BotCommands.UserSetCommand} - Open the settings panel.
+/{BotCommands.UserSetCommand [0]} - Open the settings panel.
 /{BotCommands.MediaInfoCommand} - View MediaInfo from a file or link.
 /{BotCommands.StopAllCommand[0]} - Cancel all active tasks.
 /{BotCommands.SearchCommand} - Search for torrents using API or plugins.
 /{BotCommands.StatusCommand[0]} - Show the status of all downloads.
-/{BotCommands.StatsCommand[0]} - Display machine stats hosting the bot.</blockquote>
+/{BotCommands.StatsCommand[0]} - Display machine stats hosting the bot.
 '''
 else:
     help_string = f'''<b>NOTE: Try each command without any arguments to see more details.</b>
